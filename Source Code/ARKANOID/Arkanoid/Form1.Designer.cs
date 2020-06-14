@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Arkanoid
 {
     partial class Form1
     {
