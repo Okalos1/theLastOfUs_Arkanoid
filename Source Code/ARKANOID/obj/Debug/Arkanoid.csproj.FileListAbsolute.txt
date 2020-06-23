@@ -15,3 +15,13 @@ C:\Users\cesar\Downloads\theLastOfUs_Arkanoid\theLastOfUs_Arkanoid\Source Code\A
 C:\Users\cesar\Downloads\theLastOfUs_Arkanoid\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csproj.GenerateResource.cache
 C:\Users\cesar\Downloads\theLastOfUs_Arkanoid\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.exe
 C:\Users\cesar\Downloads\theLastOfUs_Arkanoid\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.pdb
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Arkanoid.exe.config
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Arkanoid.exe
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Arkanoid.pdb
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csprojAssemblyReference.cache
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.Form1.resources
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.Properties.Resources.resources
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csproj.GenerateResource.cache
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.exe
+C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.pdb
