@@ -162,6 +162,6 @@ En la parte superior encontraras ladrillos o bloques, que desaparecen al ser toc
 
 Cada vez que cambia de pantalla hay distintas variaciones como los tipos de ladrillo; Los ladrillos blindados necesitan dos golpes para ser destruidos y acumulan dos puntos, mientras que los demas solo necesitan un golpe para ser destuidos y acumulan un punto.
 
-![WhatsApp Image 2020-06-24 at 08 28 03](https://user-images.githubusercontent.com/54407270/85575736-0bee4100-b5f5-11ea-9d02-0d5617aa1224.jpeg)
+![WhatsApp Image 2020-06-24 at 08 38 13](https://user-images.githubusercontent.com/54407270/85581962-46a6a800-b5fa-11ea-8387-cfc3308bcc53.jpeg)
 
 Acumula la mayor cantidad de puntos y demuestra que eres el mejor en el top 10 players.
