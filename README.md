@@ -11,15 +11,15 @@
 
 ## FAQ's
 * Cómo iniciar el juego?
-    Ingresar a la carpeta source code/ARKANOID luego a la carpeta bin/Debug y por ultimo ejecutar la aplicación Arkanoid.exe.
+    <br>Ingresar a la carpeta source code/ARKANOID luego a la carpeta bin/Debug y por ultimo ejecutar la aplicación Arkanoid.exe.
 * Cómo salir del juego?
-    Salir del juego es tan sencillo como presionar el botón “EXIT” de el menu O presionar el boton “x” de la parte superior derecha .
+    <br>Salir del juego es tan sencillo como presionar el botón “EXIT” de el menu O presionar el boton “x” de la parte superior derecha .
 * Que pasa si encuntro un error?
-    No tendrías por qué encontrar un error, pero en dado caso existiera solamente contactanos para más información al correo.
+    <br>No tendrías por qué encontrar un error, pero en dado caso existiera solamente contactanos para más información al correo.
 * Dondé puedo ver mi score?
-    El puntaje tiene una sección de acceso en el botón “Top10” de la ventana Menu, en el podrás accesar a los primeros 10 puntajes, ojo, tendrás que jugar 10 veces para visualizarlo.
+    <br>El puntaje tiene una sección de acceso en el botón “Top10” de la ventana Menu, en el podrás accesar a los primeros 10 puntajes, ojo, tendrás que jugar 10 veces para visualizarlo.
 * Qué significa que mi nombre aparezca en el top de jugadores?
-    En horabuena! Sin duda eres uno de los mejores jugadores de Arkanoid, por lo tanto aparecerás en nuestro Top 10!
+    <br>En horabuena! Sin duda eres uno de los mejores jugadores de Arkanoid, por lo tanto aparecerás en nuestro Top 10!
 
 ## Trello
 * https://trello.com/b/Y0XuRan4/thelastofusarkanoid
