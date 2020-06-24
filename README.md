@@ -143,8 +143,6 @@ Evita que la bola caiga al vacio y elimina todos los bloques que sean posibles p
 
 El juego se controla con las flechas del teclado, recuenda que solo puedes mover la plataforma nave espacial de izquierda a derecha.
 
-/Users/administrador/Desktop/WhatsApp Image 2020-06-24 at 00.52.13.jpeg
-
 **Orden de las Pantallas**<br>
 Al inicio del juego te encontraras con la pantalla de menu:
 
