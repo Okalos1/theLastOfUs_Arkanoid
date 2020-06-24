@@ -72,7 +72,7 @@
             this.txtScore.ForeColor = System.Drawing.Color.White;
             this.txtScore.Location = new System.Drawing.Point(12, 9);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(454, 20);
+            this.txtScore.Size = new System.Drawing.Size(1089, 31);
             this.txtScore.TabIndex = 2;
             // 
             // Form1
@@ -90,6 +90,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);

@@ -79,7 +79,9 @@ namespace Arkanoid
             this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Register_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

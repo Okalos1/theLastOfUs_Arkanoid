@@ -14,13 +14,15 @@ namespace Arkanoid
         {
             InitializeComponent();
         }
-
+        
+        
+        //Iniciar juego, abrir frm de Register
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             
             Register fr = new Register();
-
+            
             fr.gn = (string nick) => 
             {
                 if (PlayerControl.CreatePlayer(nick))
@@ -32,7 +34,7 @@ namespace Arkanoid
                     MessageBox.Show($"Gracias por registrarte {nick}");
                 }
 
-                currentPlayer = new Player(nick, 0);
+                currentPlayer.Nickname = nick;
 
                 fr.Dispose();
             };
@@ -40,12 +42,22 @@ namespace Arkanoid
             fr.Show();
       
         }
+        
+   //Abrir Top 10 jugadores 
+
 
     private void button2_Click(object sender, EventArgs e)
 {
-    FormTop ft = new FormTop();
+    var ft = new FormTop();
     
             ft.Show();
             Hide();
-}}
+            
+}
+//Cerrar Aplicación
+    private void button3_Click(object sender, EventArgs e)
+    {
+        Application.Exit();
+    }
+    }
 }

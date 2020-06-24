@@ -24,7 +24,7 @@ namespace Arkanoid.Controlador
 
         public static void CreateNewScore(int idPlayer, int score)
         {
-            DataBaseController.ExecuteNonQuery("INSERT INTO SCORE(idPlayer, score) VALUES" +
+            DataBaseController.ExecuteNonQuery("INSERT INTO SCORES(idPlayer, score) VALUES" +
                 $"({idPlayer}, {score})");
         }
 
@@ -39,10 +39,33 @@ namespace Arkanoid.Controlador
 
             foreach(DataRow dr in dt.Rows)
             {
-                topPlayers.Add(new Player(dr[0].ToString(), Convert.ToInt32(dr[1])));
-            }
+                Player u = new Player();
+                u.Score = Convert.ToInt32(dr[1].ToString());
+                u.Nickname = dr[0].ToString();
+                
+
+                topPlayers.Add(u);            }
 
             return topPlayers;
+        }
+        
+        public static List<Player> getLista()
+        {
+            string sql = "select * from PLAYER";
+
+            DataTable dt = DataBaseController.ExecuteQuery(sql);
+
+            List<Player> lista = new List<Player>();
+            foreach (DataRow row in dt.Rows)
+            {
+                Player u = new Player();
+                u.idPlayer = Convert.ToInt32(row[0].ToString());
+                u.Nickname = row[1].ToString();
+                
+
+                lista.Add(u);
+            }
+            return lista;    
         }
     }
 }

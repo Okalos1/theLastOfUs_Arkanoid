@@ -18,10 +18,10 @@ namespace Arkanoid
         {
             InitializeComponent();
         }
-
+        
+        //Boton de iniciar jugar
         private void button1_Click(object sender, EventArgs e)
         {
-            currentPlayer = new Player(textBox1.Text, 0);
             try
             {
                 switch (textBox1.Text)
@@ -33,7 +33,7 @@ namespace Arkanoid
                     case string aux when aux.Trim().Length == 0:
                         throw new EmptyNicknameException("No puede dejar campos vacios");
                     default:
-                        //gn?.Invoke(textBox1.Text);
+                        
                         
                         if (PlayerControl.CreatePlayer(textBox1.Text))
                         {
@@ -44,14 +44,19 @@ namespace Arkanoid
                             MessageBox.Show($"Gracias por registrarte {textBox1.Text}");
                         }
 
-                        currentPlayer = new Player(textBox1.Text, 0);
                         
                         var x = new DataTable();
 
-                        x = DataBaseController.ExecuteQuery($"SELECT idplayer FROM PLAYER WHERE nickname = '{currentPlayer.Nickname}'");
+                        x = DataBaseController.ExecuteQuery($"SELECT idplayer FROM PLAYER WHERE nickname = '{textBox1.Text}'");
+
+                        int id = 0;
+                        foreach (DataRow row in x.Rows)
+                        {
+                            id = Convert.ToInt32(row[0].ToString());
+                        }
                         
                         
-                        Form1 ft = new Form1(Convert.ToInt32(x.Columns[0].ToString()));
+                        Form1 ft = new Form1(id);
                                     ft.Show();
                                     Hide();
                         break;
@@ -65,6 +70,15 @@ namespace Arkanoid
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+         ///Cierre de ventana
+        private void Register_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Menu ft = new Menu();
+                      
+                              ft.Show();
+                              Hide();
         }
     }
 }

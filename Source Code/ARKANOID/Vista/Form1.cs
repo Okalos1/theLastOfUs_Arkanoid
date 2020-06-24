@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+ using Arkanoid.Controlador;
  using Arkanoid.Modelo;
 
  namespace Arkanoid
 {
   public partial class Form1 : Form
   {
-    public delegate void OnClosedWindow();
-    public OnClosedWindow CloseAction;
+   
     private delegate void BallActions();
     private readonly BallActions BallMovements;
-    public Action FinishGame, WinningGame;
+    public Action  WinningGame;
      
+    private int currentPlayerId;
     private Player currentPlayer;
   
       
@@ -38,16 +39,17 @@ using System.Windows.Forms;
     Random rnd = new Random();
     private PictureBox[] blockArray;
     
-
+    //Inicializar Form
     public Form1(int idPlayer)
     {
       InitializeComponent();
       
       BallMovements = BounceBall;
-      currentPlayer.idPlayer = idPlayer;
+      currentPlayerId = idPlayer;
        setupGame();
     }
     
+    //Fix Flicking
     protected override CreateParams CreateParams {
       get {
         CreateParams cp = base.CreateParams;
@@ -56,14 +58,14 @@ using System.Windows.Forms;
       }
     } 
 
-
+    //Configurar ajustes del juego
     private void setupGame()
     {
       isGameOver = false;
       GameData.score = 0;
       GameData.lifes = 3;
-      ballx = 10;
-      bally = 10;
+      ballx = 30;
+      bally = 30;
       playerSpeed = 20;
       txtScore.Text = "Score: " + GameData.score+ "  Lifes: "+ GameData.lifes;
       
@@ -71,18 +73,21 @@ using System.Windows.Forms;
       gameTimer.Start();
     
     }
-
+    
+    //Agregar fin del juego
     private void gameOver(string message)
     {
       isGameOver = true;
       gameTimer.Stop();
-
+      
+      currentPlayer = new Player();
+      
       currentPlayer.Score = GameData.score;
 
       txtScore.Text = "Score: " + GameData.score + "  Lifes: "+ GameData.lifes+ "        " + message;
     }
 
-    //Controlesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+    //Configuración del timer, junto a rebotes, destruccion de  y ganar juego
     private void gameTimer_Tick(object sender, EventArgs e)
     {
       BallMovements?.Invoke();
@@ -92,7 +97,7 @@ using System.Windows.Forms;
       {
         picPaddle.Left -= playerSpeed;
       }
-      if (goRight == true && picPaddle.Left < Width)
+      if (goRight == true && picPaddle.Left < (Width-picPaddle.Width-10))
       {
         picPaddle.Left += playerSpeed;
       }
@@ -100,7 +105,7 @@ using System.Windows.Forms;
       picBall.Left += ballx;
       picBall.Top += bally;
 
-      if (picBall.Left < 0 || picBall.Left> Width)
+      if (picBall.Left < 0 || picBall.Left> Width-20)
       {
         ballx = -ballx;
       }
@@ -139,9 +144,11 @@ using System.Windows.Forms;
         }
       }
 
-      if (GameData.score == 50)
+      if (GameData.score == 60)
       {
-        gameOver("HAS SOBREVIVIDO AL CORONAVIRUS!!! ");
+        gameOver("HAS SOBREVIVIDO AL CORONAVIRUS!!! PRESIONA EXIT PARA VOLVER AL MENU");
+        PlayerControl.CreateNewScore(currentPlayerId, GameData.score);
+
       }
 
       if (picBall.Top > Height)
@@ -151,7 +158,8 @@ using System.Windows.Forms;
         {
 
 
-          gameOver($"MORISTE DE CORONAVIRUS!!! ");
+          gameOver($"MORISTE DE CORONAVIRUS!!! PRESIONA EXIT PARA VOLVER AL MENU");
+          PlayerControl.CreateNewScore(currentPlayerId, GameData.score);
 
         }
         else
@@ -166,6 +174,7 @@ using System.Windows.Forms;
       }
     }
 
+    //Mover jugador    
     private void Form1_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Left)
@@ -179,6 +188,7 @@ using System.Windows.Forms;
       }
     }
     
+    //Mover jugador 
     private void Form1_KeyUp(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Left)
@@ -191,11 +201,6 @@ using System.Windows.Forms;
         goRight = false;
       }
 
-      // if (e.KeyCode == Keys.Enter && isGameOver == true)
-      // {
-      //   removeBlocks();
-      //   // placeBlocks();
-      // }
     }
 
     private void Form1_Load(object sender, EventArgs e)
@@ -264,6 +269,7 @@ using System.Windows.Forms;
       }
     }
 
+    //Rebote de pelota 
     private void BounceBall()
     {
       for (int i = 4; i >= 0; i--)
@@ -296,6 +302,14 @@ using System.Windows.Forms;
           }
         }
       }
+    }
+    //Cierre de form
+    private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+    {
+      Menu ft = new Menu();
+          
+                  ft.Show();
+                  Hide();
     }
   }
 }
