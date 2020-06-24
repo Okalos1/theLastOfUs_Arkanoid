@@ -77,8 +77,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador\DataBaseConection.cs" />
+    <Compile Include="Controlador\DataBaseController.cs" />
+    <Compile Include="Controlador\EmptyNicknameException.cs" />
+    <Compile Include="Controlador\ExceededMaxCharactersException.cs" />
     <Compile Include="Controlador\GameData.cs" />
+    <Compile Include="Controlador\PlayerControl.cs" />
     <Compile Include="Modelo\CustomePictureBox.cs" />
     <Compile Include="Modelo\Player.cs" />
     <Compile Include="Program.cs" />
@@ -95,6 +98,12 @@
     <Compile Include="Vista\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -109,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

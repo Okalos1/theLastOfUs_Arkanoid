@@ -41,9 +41,7 @@ using System.Windows.Forms;
       InitializeComponent();
       
       BallMovements = BounceBall;
-      // BallMovements += MoveBall;
        setupGame();
-      //placeBlocks();
     }
     
     protected override CreateParams CreateParams {
@@ -59,29 +57,15 @@ using System.Windows.Forms;
     {
       isGameOver = false;
       GameData.score = 0;
+      GameData.lifes = 3;
       ballx = 10;
       bally = 10;
       playerSpeed = 20;
-      txtScore.Text = "Score:" + GameData.score;
+      txtScore.Text = "Score: " + GameData.score+ "  Lifes: "+ GameData.lifes;
       
-      
-
-      picBall.Left = 448;
-      picBall.Top = 45;
 
       gameTimer.Start();
-      //COLOREEEEEEEEEEEEEEEEEEES JBALVIN
-      foreach (Control x in this.Controls)
-      {
-        if (x is PictureBox && (String) x.Tag == "blocks")
-        {
-          x.BackColor = Color.FromArgb(rnd.Next(256),rnd.Next(256),rnd.Next(256));
-        }
-          
-        picPaddle.Top = Height - picPaddle.Height - 80;
-        picPaddle.Left= Width/2;
-        
-      }
+    
     }
 
     private void gameOver(string message)
@@ -89,60 +73,14 @@ using System.Windows.Forms;
       isGameOver = true;
       gameTimer.Stop();
 
-      txtScore.Text = "Score: " + GameData.score + "        " + message;
+      txtScore.Text = "Score: " + GameData.score + "  Lifes: "+ GameData.lifes+ "        " + message;
     }
 
-    private void placeBlocks()
-    {
-      blockArray = new PictureBox[40];
-      int a = 0;
-      int top = 50;
-       int left = 100;
-
-       for (int i = 0; i < blockArray.Length; i++)
-       {
-         blockArray[i]=new PictureBox();
-         blockArray[i].Height = 30;
-         blockArray[i].Width = 100;
-         blockArray[i].Tag = "blocks";
-         blockArray[i].BackColor=Color.Peru;
-
-         if (a == 5)
-         {
-           top = top + 50;
-           left = 300;
-           a = 0;
-         }
-
-         if (a < 5)
-         {
-           a++;
-           blockArray[i].Left = left;
-           blockArray[i].Top = top;
-
-           this.Controls.Add(blockArray[i]);
-           left = left + 130;
-         }
-       }
-      
-    }
-
-    private void removeBlocks()
-    {
-      foreach (PictureBox x in blockArray)
-      {
-        this.Controls.Remove(x);
-      }
-      
-    }
-    
-    
-    
     //Controlesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
     private void gameTimer_Tick(object sender, EventArgs e)
     {
       BallMovements?.Invoke();
-      txtScore.Text = "Score: " + GameData.score;
+      txtScore.Text = "Score: " + GameData.score+ "  Lifes: "+ GameData.lifes;
         
       if (goleft == true && picPaddle.Left >5)
       {
@@ -197,21 +135,31 @@ using System.Windows.Forms;
 
       if (GameData.score == 50)
       {
-        gameOver("HAS SOBREVIVIDO AL CORONAVIRUS!!! PRESS ENTER ");
+        gameOver("HAS SOBREVIVIDO AL CORONAVIRUS!!! ");
       }
 
       if (picBall.Top > Height)
       {
-          GameData.lifes--;
-            if(GameData.lifes.Equals(0))
-            {
-               gameOver("MORISTE DE CORONAVIRUS!!! PRESS ENTER ");
-            }
-      }
+        GameData.lifes--;
+        if (GameData.lifes == 0)
+        {
 
-    
+
+          gameOver($"MORISTE DE CORONAVIRUS!!! ");
+
+        }
+        else
+        {
+          
+          picPaddle.Top = Height - picPaddle.Height - 80;
+          picPaddle.Left = Width / 2;
+          picBall.Top = picPaddle.Top - picBall.Height;
+          picBall.Left = picPaddle.Left + picPaddle.Width / 2 - picBall.Width / 2;
+        }
+
+      }
     }
-    
+
     private void Form1_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Left)
@@ -237,111 +185,111 @@ using System.Windows.Forms;
         goRight = false;
       }
 
-      if (e.KeyCode == Keys.Enter && isGameOver == true)
+      // if (e.KeyCode == Keys.Enter && isGameOver == true)
+      // {
+      //   removeBlocks();
+      //   // placeBlocks();
+      // }
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+      //Configurando atributos para jugador
+      picPaddle.Top = Height - picPaddle.Height - 80;
+      picPaddle.Left = Width / 2 - picPaddle.Width / 2;
+        
+      //Configurando atributos para bola
+      picBall.Top = picPaddle.Top - picBall.Height;
+      picBall.Left = picPaddle.Left + picPaddle.Width / 2 - picBall.Width / 2;
+
+      
+      // Variables auxiliares para el calculo de tamano de cada cpb
+      int xAxis = 10, yAxis = 5;
+      remainingPb = xAxis * yAxis;
+
+      int pbWidth = (Width - (xAxis - 5)) / xAxis;
+      int pbHeight = (int)(Height * 0.3) / yAxis;
+
+      cpb = new CustomPictureBox[yAxis, xAxis];
+
+      // Rutina de instanciacion y agregacion al Form
+      for (var i = 0; i < yAxis; i++)
+      for (var j = 0; j < xAxis; j++)
       {
-        removeBlocks();
-        // placeBlocks();
+        cpb[i, j] = new CustomPictureBox();
+
+        if (i == 4)
+          cpb[i, j].Hits = 2;
+        else
+          cpb[i, j].Hits = 1;
+
+        // Seteando el tamano
+        cpb[i, j].Height = pbHeight;
+        cpb[i, j].Width = pbWidth;
+
+        // Posicion de left, y posicion de top
+        cpb[i, j].Left = j * pbWidth;
+        cpb[i, j].Top = i * pbHeight + (int)(Height * 0.07) + 1;
+
+        int imageBack;
+        if (i % 2 == 0 && j % 2 == 0)
+          imageBack = 4;
+        else if (i % 2 == 0 && j % 2 != 0)
+          imageBack = 5;
+        else if (i % 2 != 0 && j % 2 == 0)
+          imageBack = 6;
+        else
+          imageBack = 7;
+
+        if (i == 4)
+        {
+          cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/tb1.png");
+          cpb[i, j].Tag = "blinded";
+        }
+        else
+        {
+          cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/" + imageBack + ".png");
+          cpb[i, j].Tag = "tileTag";
+        }
+
+        cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
+
+        Controls.Add(cpb[i, j]);
       }
     }
 
-      private void Form1_Load(object sender, EventArgs e)
+    private void BounceBall()
+    {
+      for (int i = 4; i >= 0; i--)
       {
-        //Configurando atributos para jugador
-        picPaddle.Top = Height - picPaddle.Height - 80;
-        picPaddle.Left = Width / 2 - picPaddle.Width / 2;
-        
-        //Configurando atributos para bola
-        picBall.Top = picPaddle.Top - picBall.Height;
-        picBall.Left = picPaddle.Left + picPaddle.Width / 2 - picBall.Width / 2;
-
-      
-        // Variables auxiliares para el calculo de tamano de cada cpb
-        int xAxis = 10, yAxis = 5;
-          remainingPb = xAxis * yAxis;
-
-          int pbWidth = (Width - (xAxis - 5)) / xAxis;
-          int pbHeight = (int)(Height * 0.3) / yAxis;
-
-          cpb = new CustomPictureBox[yAxis, xAxis];
-
-          // Rutina de instanciacion y agregacion al Form
-          for (var i = 0; i < yAxis; i++)
-          for (var j = 0; j < xAxis; j++)
-          {
-            cpb[i, j] = new CustomPictureBox();
-
-            if (i == 4)
-              cpb[i, j].Hits = 2;
-            else
-              cpb[i, j].Hits = 1;
-
-            // Seteando el tamano
-            cpb[i, j].Height = pbHeight;
-            cpb[i, j].Width = pbWidth;
-
-            // Posicion de left, y posicion de top
-            cpb[i, j].Left = j * pbWidth;
-            cpb[i, j].Top = i * pbHeight + (int)(Height * 0.07) + 1;
-
-            int imageBack;
-            if (i % 2 == 0 && j % 2 == 0)
-              imageBack = 4;
-            else if (i % 2 == 0 && j % 2 != 0)
-              imageBack = 5;
-            else if (i % 2 != 0 && j % 2 == 0)
-              imageBack = 6;
-            else
-              imageBack = 7;
-
-            if (i == 4)
-            {
-              cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/tb1.png");
-              cpb[i, j].Tag = "blinded";
-            }
-            else
-            {
-              cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/" + imageBack + ".png");
-              cpb[i, j].Tag = "tileTag";
-            }
-
-            cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
-
-            Controls.Add(cpb[i, j]);
-          }
-      }
-
-      private void BounceBall()
-      {
-        for (int i = 4; i >= 0; i--)
+        for (int j = 0; j < 10; j++)
         {
-          for (int j = 0; j < 10; j++)
-          {
-            if (cpb[i, j] != null && picBall.Bounds.IntersectsWith(cpb[i, j].Bounds))
-            {   
-              GameData.score += (int)(cpb[i, j].Hits * GameData.ticksCount);
-              cpb[i, j].Hits--;
+          if (cpb[i, j] != null && picBall.Bounds.IntersectsWith(cpb[i, j].Bounds))
+          {   
+            GameData.score += (int)(cpb[i, j].Hits * GameData.ticksCount);
+            cpb[i, j].Hits--;
 
-              if (cpb[i, j].Hits == 0)
-              {
-                Controls.Remove(cpb[i, j]);
-                cpb[i, j] = null;
+            if (cpb[i, j].Hits == 0)
+            {
+              Controls.Remove(cpb[i, j]);
+              cpb[i, j] = null;
 
-                remainingPb--;
-              }
-              else if(cpb[i, j].Tag.Equals("blinded"))
-                cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/tb2.png");
-
-              GameData.dirY = -GameData.dirY;
-
-              //score = Convert.ToInt32(GameData.score.ToString());
-
-              if (remainingPb == 0)
-                WinningGame?.Invoke();
-
-              return;
+              remainingPb--;
             }
+            else if(cpb[i, j].Tag.Equals("blinded"))
+              cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/tb2.png");
+
+            GameData.dirY = -GameData.dirY;
+
+            //score = Convert.ToInt32(GameData.score.ToString());
+
+            if (remainingPb == 0)
+              WinningGame?.Invoke();
+
+            return;
           }
         }
       }
+    }
   }
 }
