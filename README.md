@@ -35,7 +35,7 @@ Deberá contener las siguientes opciones:
 **Jugar**<br>
 Deberá solicitar un nombre de jugador a través de una pequeña ventana o cambio de panel dentro de la principal. El nombre del jugador deberá ir a buscar su existencia en una **BD**, en caso no exista deberá agregarse.
 
-![Jugador](./Res/usuario.png)
+![Jugador](./Re s/usuario.png)
 
 **Puntajes**<br>
 Se mostrará una ventana externa conteniendo un **Top 10** mejores puntajes, mostrando el nombre del jugador/usuario y el puntaje obtenido.
@@ -142,6 +142,8 @@ Arkanoid.
 Evita que la bola caiga al vacio y elimina todos los bloques que sean posibles para ganar Arkanoid.
 
 El juego se controla con las flechas del teclado, recuenda que solo puedes mover la plataforma nave espacial de izquierda a derecha.
+
+/Users/administrador/Desktop/WhatsApp Image 2020-06-24 at 00.52.13.jpeg
 
 **Orden de las Pantallas**<br>
 Al inicio del juego te encontraras con la pantalla de menu:
