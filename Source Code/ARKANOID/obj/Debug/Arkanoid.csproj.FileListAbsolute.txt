@@ -25,3 +25,36 @@ C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\De
 C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csproj.CoreCompileInputs.cache
 C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.exe
 C:\Users\Sebastian\Source\Repos\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.pdb
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Arkanoid.exe.config
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Arkanoid.exe
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Arkanoid.pdb
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Npgsql.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Buffers.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Memory.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Text.Json.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.ValueTuple.dll
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Npgsql.pdb
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\Npgsql.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Buffers.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Memory.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Text.Json.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\bin\Debug\System.ValueTuple.xml
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csprojAssemblyReference.cache
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.Form1.resources
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.Properties.Resources.resources
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csproj.GenerateResource.cache
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csproj.CoreCompileInputs.cache
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.csproj.CopyComplete
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.exe
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.pdb
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.Menu.resources

@@ -12,6 +12,9 @@ namespace Arkanoid
 {
   public partial class Form1 : Form
   {
+    public delegate void OnClosedWindow();
+    public OnClosedWindow CloseAction;
+      
     private bool goleft;
     private bool goRight;
     private bool isGameOver;
@@ -31,20 +34,29 @@ namespace Arkanoid
       
       placeBlocks();
     }
+    
+    protected override CreateParams CreateParams {
+      get {
+        CreateParams cp = base.CreateParams;
+        cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+        return cp;
+      }
+    } 
+
 
     private void setupGame()
     {
       isGameOver = false;
       score = 0;
-      ballx = 5;
-      bally = 5;
-      playerSpeed = 12;
+      ballx = 10;
+      bally = 10;
+      playerSpeed = 20;
       txtScore.Text = "Score:" + score;
+      
+      
 
       picBall.Left = 448;
-      picBall.Top = 453;
-
-      picPaddle.Left =434 ;
+      picBall.Top = 45;
 
       gameTimer.Start();
       //COLOREEEEEEEEEEEEEEEEEEES JBALVIN
@@ -55,6 +67,9 @@ namespace Arkanoid
           x.BackColor = Color.FromArgb(rnd.Next(256),rnd.Next(256),rnd.Next(256));
         }
           
+        picPaddle.Top = Height - picPaddle.Height - 80;
+        picPaddle.Left= Width/2;
+        
       }
     }
 
@@ -68,7 +83,7 @@ namespace Arkanoid
 
     private void placeBlocks()
     {
-      blockArray = new PictureBox[25];
+      blockArray = new PictureBox[40];
       int a = 0;
       int top = 50;
        int left = 100;
@@ -76,7 +91,7 @@ namespace Arkanoid
        for (int i = 0; i < blockArray.Length; i++)
        {
          blockArray[i]=new PictureBox();
-         blockArray[i].Height = 25;
+         blockArray[i].Height = 30;
          blockArray[i].Width = 100;
          blockArray[i].Tag = "blocks";
          blockArray[i].BackColor=Color.Peru;
@@ -84,7 +99,7 @@ namespace Arkanoid
          if (a == 5)
          {
            top = top + 50;
-           left = 100;
+           left = 300;
            a = 0;
          }
 
@@ -121,7 +136,7 @@ namespace Arkanoid
       {
         picPaddle.Left -= playerSpeed;
       }
-      if (goRight == true && picPaddle.Left <725)
+      if (goRight == true && picPaddle.Left < Width)
       {
         picPaddle.Left += playerSpeed;
       }
@@ -129,7 +144,7 @@ namespace Arkanoid
       picBall.Left += ballx;
       picBall.Top += bally;
 
-      if (picBall.Left < 0 || picBall.Left> 826)
+      if (picBall.Left < 0 || picBall.Left> Width)
       {
         ballx = -ballx;
       }
@@ -173,7 +188,7 @@ namespace Arkanoid
         gameOver("HAS SOBREVIVIDO AL CORONAVIRUS!!! PRESS ENTER ");
       }
 
-      if (picBall.Top >550)
+      if (picBall.Top > Height)
       {
         gameOver("MORISTE DE CORONAVIRUS!!! PRESS ENTER ");
       }
@@ -213,9 +228,9 @@ namespace Arkanoid
       }
     }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+      private void Form1_Load(object sender, EventArgs e)
+      {
+        picBall.Left = 448; picBall.Top = 45;
+      }      
+  }
 }
