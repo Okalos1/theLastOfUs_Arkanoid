@@ -21,12 +21,15 @@ namespace Arkanoid
 
         private void button1_Click(object sender, EventArgs e)
         {
+            currentPlayer = new Player(textBox1.Text, 0);
             try
             {
                 switch (textBox1.Text)
                 {
+                                       
+
                     case string aux when aux.Length > 15:
-                        throw new ExceededMaxCharactersException("No se puede introducir un nick de mas de 15 car");
+                        throw new ExceededMaxCharactersException($"No se puede introducir un nick de mas de 15 car");
                     case string aux when aux.Trim().Length == 0:
                         throw new EmptyNicknameException("No puede dejar campos vacios");
                     default:
@@ -45,10 +48,10 @@ namespace Arkanoid
                         
                         var x = new DataTable();
 
-                        x = DataBaseController.ExecuteQuery($"SELECT idplayer FROM PLAYER WHERE nickname = '{currentPlayer}'");
+                        x = DataBaseController.ExecuteQuery($"SELECT idplayer FROM PLAYER WHERE nickname = '{currentPlayer.Nickname}'");
                         
                         
-                        Form1 ft = new Form1(Convert.ToInt32(x.Columns));
+                        Form1 ft = new Form1(Convert.ToInt32(x.Columns[0].ToString()));
                                     ft.Show();
                                     Hide();
                         break;
