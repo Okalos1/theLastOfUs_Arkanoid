@@ -41,11 +41,12 @@
             // 
             // picBall
             // 
-            this.picBall.BackColor = System.Drawing.Color.Red;
-            this.picBall.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picBall.Location = new System.Drawing.Point(384, 393);
+            this.picBall.BackColor = System.Drawing.Color.Transparent;
+            this.picBall.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("picBall.BackgroundImage")));
+            this.picBall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBall.Location = new System.Drawing.Point(384, 388);
             this.picBall.Name = "picBall";
-            this.picBall.Size = new System.Drawing.Size(18, 19);
+            this.picBall.Size = new System.Drawing.Size(25, 24);
             this.picBall.TabIndex = 0;
             this.picBall.TabStop = false;
             // 
@@ -57,11 +58,12 @@
             // 
             // picPaddle
             // 
-            this.picPaddle.BackColor = System.Drawing.Color.Lime;
-            this.picPaddle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picPaddle.Location = new System.Drawing.Point(372, 526);
+            this.picPaddle.BackColor = System.Drawing.Color.Transparent;
+            this.picPaddle.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("picPaddle.BackgroundImage")));
+            this.picPaddle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPaddle.Location = new System.Drawing.Point(342, 524);
             this.picPaddle.Name = "picPaddle";
-            this.picPaddle.Size = new System.Drawing.Size(118, 25);
+            this.picPaddle.Size = new System.Drawing.Size(148, 27);
             this.picPaddle.TabIndex = 1;
             this.picPaddle.TabStop = false;
             // 
@@ -72,7 +74,7 @@
             this.txtScore.ForeColor = System.Drawing.Color.White;
             this.txtScore.Location = new System.Drawing.Point(12, 9);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(454, 20);
+            this.txtScore.Size = new System.Drawing.Size(1089, 31);
             this.txtScore.TabIndex = 2;
             // 
             // Form1
@@ -90,6 +92,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);

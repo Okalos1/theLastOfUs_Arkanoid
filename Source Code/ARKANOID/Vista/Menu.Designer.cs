@@ -44,9 +44,9 @@ namespace Arkanoid
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.button1.Location = new System.Drawing.Point(3, 151);
+            this.button1.Location = new System.Drawing.Point(3, 154);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(339, 142);
+            this.button1.Size = new System.Drawing.Size(339, 135);
             this.button1.TabIndex = 0;
             this.button1.Text = "PLAY";
             this.button1.UseVisualStyleBackColor = true;
@@ -56,9 +56,9 @@ namespace Arkanoid
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.button2.Location = new System.Drawing.Point(348, 151);
+            this.button2.Location = new System.Drawing.Point(348, 154);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(339, 142);
+            this.button2.Size = new System.Drawing.Size(339, 135);
             this.button2.TabIndex = 1;
             this.button2.Text = "TOP 10 PLAYERS";
             this.button2.UseVisualStyleBackColor = true;
@@ -75,6 +75,7 @@ namespace Arkanoid
             this.button3.TabIndex = 2;
             this.button3.Text = "EXIT";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -92,7 +93,6 @@ namespace Arkanoid
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
@@ -117,6 +117,7 @@ namespace Arkanoid
             this.ClientSize = new System.Drawing.Size(690, 446);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.Black;
+            this.MaximizeBox = false;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
