@@ -35,7 +35,7 @@ Deberá contener las siguientes opciones:
 **Jugar**<br>
 Deberá solicitar un nombre de jugador a través de una pequeña ventana o cambio de panel dentro de la principal. El nombre del jugador deberá ir a buscar su existencia en una **BD**, en caso no exista deberá agregarse.
 
-![Jugador](./Res/usuario.png)
+![Jugador](./Re s/usuario.png)
 
 **Puntajes**<br>
 Se mostrará una ventana externa conteniendo un **Top 10** mejores puntajes, mostrando el nombre del jugador/usuario y el puntaje obtenido.
@@ -134,3 +134,34 @@ Lista de eventos y excepciones con breve descripción.
 
 ### Adicional para los grupos de cuatro integrantes
 En la sección de UML del Manual Técnico deberá agregar un UML de diagrama de casos de uso.
+
+# Manual de usuario
+
+**Antes de comenzar**<br>
+Arkanoid. 
+Evita que la bola caiga al vacio y elimina todos los bloques que sean posibles para ganar Arkanoid.
+
+El juego se controla con las flechas del teclado, recuenda que solo puedes mover la plataforma nave espacial de izquierda a derecha.
+
+![WhatsApp Image 2020-06-24 at 00 52 13](https://user-images.githubusercontent.com/54407270/85574218-d09f4280-b5f3-11ea-954d-ffd8383c0128.jpeg)
+
+**Orden de las Pantallas**<br>
+Al inicio del juego te encontraras con la pantalla de menu:
+
+Preciona play para comenzar a jugar, el boton top 10 players te mostrara el score de los mejores 10 jugadore o la opcion de salir.
+
+Al iniciar tu partida, tendras que ingresar tu usuario, y el juego comienza.
+
+![WhatsApp Image 2020-06-24 at 00 53 36](https://user-images.githubusercontent.com/54407270/85574398-f7f60f80-b5f3-11ea-9dbb-74e1c7a043dc.jpeg)
+
+**Comenzar a Jugar**<br>
+
+![WhatsApp Image 2020-06-24 at 00 53 03](https://user-images.githubusercontent.com/54407270/85574495-122fed80-b5f4-11ea-9f87-1d50e13f3e1b.jpeg)
+
+En la parte superior encontraras ladrillos o bloques, que desaparecen al ser tocados por la bola. 
+
+Cada vez que cambia de pantalla hay distintas variaciones como los tipos de ladrillo; Los ladrillos blindados necesitan dos golpes para ser destruidos y acumulan dos puntos, mientras que los demas solo necesitan un golpe para ser destuidos y acumulan un punto.
+
+![WhatsApp Image 2020-06-24 at 08 38 13](https://user-images.githubusercontent.com/54407270/85581962-46a6a800-b5fa-11ea-8387-cfc3308bcc53.jpeg)
+
+Acumula la mayor cantidad de puntos y demuestra que eres el mejor en el top 10 players.
