@@ -48,10 +48,19 @@ namespace Arkanoid
 
     private void button2_Click(object sender, EventArgs e)
 {
-    var ft = new FormTop();
     
-            ft.Show();
-            Hide();
+    var ft = new FormTop();
+    if (FormTop.CountList())
+    {
+        MessageBox.Show("¡Necesitas tener 10 puntajes para visualizar el top!", "Error", MessageBoxButtons.OK,
+            MessageBoxIcon.Error);
+    }
+    else
+    {
+        ft.Show();
+        Hide();
+    }
+    
             
 }
 //Cerrar Aplicación

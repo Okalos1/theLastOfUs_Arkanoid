@@ -144,7 +144,7 @@ using System.Windows.Forms;
         }
       }
 
-      if (GameData.score == 60)
+      if (remainingPb == 0 )
       {
         gameOver("HAS SOBREVIVIDO AL CORONAVIRUS!!! PRESIONA EXIT PARA VOLVER AL MENU");
         PlayerControl.CreateNewScore(currentPlayerId, GameData.score);
