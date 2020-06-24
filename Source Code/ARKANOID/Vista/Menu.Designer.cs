@@ -62,6 +62,7 @@ namespace Arkanoid
             this.button2.TabIndex = 1;
             this.button2.Text = "TOP 10 PLAYERS";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 

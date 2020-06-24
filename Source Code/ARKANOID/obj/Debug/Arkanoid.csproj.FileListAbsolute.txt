@@ -59,3 +59,4 @@ C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\De
 C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.pdb
 C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.Menu.resources
 C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.Register.resources
+C:\Users\Nery Lopez\RYS2019\POO\theLastOfUs_Arkanoid\Source Code\ARKANOID\obj\Debug\Arkanoid.FormTop.resources

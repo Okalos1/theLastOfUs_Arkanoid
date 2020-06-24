@@ -38,20 +38,14 @@ namespace Arkanoid
             };
 
             fr.Show();
-            
-          
-            Form1 ft = new Form1
-            {
-                CloseAction = () =>
-                {
-                    Show();
-                }
-            };
-            
-            ft.Show();
-            Hide();
-
+      
         }
 
-    }
+    private void button2_Click(object sender, EventArgs e)
+{
+    FormTop ft = new FormTop();
+    
+            ft.Show();
+            Hide();
+}}
 }

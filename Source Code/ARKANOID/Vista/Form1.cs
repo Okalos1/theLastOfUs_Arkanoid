@@ -18,6 +18,9 @@ using System.Windows.Forms;
     private delegate void BallActions();
     private readonly BallActions BallMovements;
     public Action FinishGame, WinningGame;
+     
+    private Player currentPlayer;
+  
       
     private bool goleft;
     private bool goRight;
@@ -36,11 +39,12 @@ using System.Windows.Forms;
     private PictureBox[] blockArray;
     
 
-    public Form1()
+    public Form1(int idPlayer)
     {
       InitializeComponent();
       
       BallMovements = BounceBall;
+      currentPlayer.idPlayer = idPlayer;
        setupGame();
     }
     
@@ -72,6 +76,8 @@ using System.Windows.Forms;
     {
       isGameOver = true;
       gameTimer.Stop();
+
+      currentPlayer.Score = GameData.score;
 
       txtScore.Text = "Score: " + GameData.score + "  Lifes: "+ GameData.lifes+ "        " + message;
     }

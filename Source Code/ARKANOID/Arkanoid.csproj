@@ -92,6 +92,12 @@
     <Compile Include="Vista\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\FormTop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\FormTop.Designer.cs">
+      <DependentUpon>FormTop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="Vista\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\FormTop.resx">
+      <DependentUpon>FormTop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

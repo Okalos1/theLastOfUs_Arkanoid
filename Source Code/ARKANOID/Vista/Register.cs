@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
 using Arkanoid.Modelo;
@@ -42,6 +43,14 @@ namespace Arkanoid
 
                         currentPlayer = new Player(textBox1.Text, 0);
                         
+                        var x = new DataTable();
+
+                        x = DataBaseController.ExecuteQuery($"SELECT idplayer FROM PLAYER WHERE nickname = '{currentPlayer}'");
+                        
+                        
+                        Form1 ft = new Form1(Convert.ToInt32(x.Columns));
+                                    ft.Show();
+                                    Hide();
                         break;
                 }
             }
