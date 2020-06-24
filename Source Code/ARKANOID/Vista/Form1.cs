@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+ using Arkanoid.Modelo;
 
-namespace Arkanoid
+ namespace Arkanoid
 {
   public partial class Form1 : Form
   {
     public delegate void OnClosedWindow();
     public OnClosedWindow CloseAction;
+    private delegate void BallActions();
+    private readonly BallActions BallMovements;
+    public Action FinishGame, WinningGame;
       
     private bool goleft;
     private bool goRight;
@@ -23,6 +27,10 @@ namespace Arkanoid
     private int ballx;
     private int bally;
     private int playerSpeed;
+    private int remainingPb = 0;
+    private CustomPictureBox[,] cpb;
+
+
     
     Random rnd = new Random();
     private PictureBox[] blockArray;
@@ -32,7 +40,10 @@ namespace Arkanoid
     {
       InitializeComponent();
       
-      placeBlocks();
+      BallMovements = BounceBall;
+      // BallMovements += MoveBall;
+       setupGame();
+      //placeBlocks();
     }
     
     protected override CreateParams CreateParams {
@@ -47,11 +58,11 @@ namespace Arkanoid
     private void setupGame()
     {
       isGameOver = false;
-      score = 0;
+      GameData.score = 0;
       ballx = 10;
       bally = 10;
       playerSpeed = 20;
-      txtScore.Text = "Score:" + score;
+      txtScore.Text = "Score:" + GameData.score;
       
       
 
@@ -78,7 +89,7 @@ namespace Arkanoid
       isGameOver = true;
       gameTimer.Stop();
 
-      txtScore.Text = "Score: " + score + "        " + message;
+      txtScore.Text = "Score: " + GameData.score + "        " + message;
     }
 
     private void placeBlocks()
@@ -113,7 +124,7 @@ namespace Arkanoid
            left = left + 130;
          }
        }
-       setupGame();
+      
     }
 
     private void removeBlocks()
@@ -130,7 +141,8 @@ namespace Arkanoid
     //Controlesssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
     private void gameTimer_Tick(object sender, EventArgs e)
     {
-      txtScore.Text = "Score: " + score;
+      BallMovements?.Invoke();
+      txtScore.Text = "Score: " + GameData.score;
         
       if (goleft == true && picPaddle.Left >5)
       {
@@ -171,26 +183,30 @@ namespace Arkanoid
 
       foreach (Control x in this.Controls)
       {
-        if (x is PictureBox && (String) x.Tag == "blocks")
+        if (x is CustomPictureBox)
         {
           if (picBall.Bounds.IntersectsWith(x.Bounds))
           {
-            score += 1;
+            GameData.score += 1;
             bally = -bally;
            
-            this.Controls.Remove(x);
+             if(!x.Tag.Equals("blinded")) Controls.Remove(x);
           }
         }
       }
 
-      if (score == 25)
+      if (GameData.score == 50)
       {
         gameOver("HAS SOBREVIVIDO AL CORONAVIRUS!!! PRESS ENTER ");
       }
 
       if (picBall.Top > Height)
       {
-        gameOver("MORISTE DE CORONAVIRUS!!! PRESS ENTER ");
+          GameData.lifes--;
+            if(GameData.lifes.Equals(0))
+            {
+               gameOver("MORISTE DE CORONAVIRUS!!! PRESS ENTER ");
+            }
       }
 
     
@@ -224,13 +240,108 @@ namespace Arkanoid
       if (e.KeyCode == Keys.Enter && isGameOver == true)
       {
         removeBlocks();
-        placeBlocks();
+        // placeBlocks();
       }
     }
 
       private void Form1_Load(object sender, EventArgs e)
       {
-        picBall.Left = 448; picBall.Top = 45;
-      }      
+        //Configurando atributos para jugador
+        picPaddle.Top = Height - picPaddle.Height - 80;
+        picPaddle.Left = Width / 2 - picPaddle.Width / 2;
+        
+        //Configurando atributos para bola
+        picBall.Top = picPaddle.Top - picBall.Height;
+        picBall.Left = picPaddle.Left + picPaddle.Width / 2 - picBall.Width / 2;
+
+      
+        // Variables auxiliares para el calculo de tamano de cada cpb
+        int xAxis = 10, yAxis = 5;
+          remainingPb = xAxis * yAxis;
+
+          int pbWidth = (Width - (xAxis - 5)) / xAxis;
+          int pbHeight = (int)(Height * 0.3) / yAxis;
+
+          cpb = new CustomPictureBox[yAxis, xAxis];
+
+          // Rutina de instanciacion y agregacion al Form
+          for (var i = 0; i < yAxis; i++)
+          for (var j = 0; j < xAxis; j++)
+          {
+            cpb[i, j] = new CustomPictureBox();
+
+            if (i == 4)
+              cpb[i, j].Hits = 2;
+            else
+              cpb[i, j].Hits = 1;
+
+            // Seteando el tamano
+            cpb[i, j].Height = pbHeight;
+            cpb[i, j].Width = pbWidth;
+
+            // Posicion de left, y posicion de top
+            cpb[i, j].Left = j * pbWidth;
+            cpb[i, j].Top = i * pbHeight + (int)(Height * 0.07) + 1;
+
+            int imageBack;
+            if (i % 2 == 0 && j % 2 == 0)
+              imageBack = 4;
+            else if (i % 2 == 0 && j % 2 != 0)
+              imageBack = 5;
+            else if (i % 2 != 0 && j % 2 == 0)
+              imageBack = 6;
+            else
+              imageBack = 7;
+
+            if (i == 4)
+            {
+              cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/tb1.png");
+              cpb[i, j].Tag = "blinded";
+            }
+            else
+            {
+              cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/" + imageBack + ".png");
+              cpb[i, j].Tag = "tileTag";
+            }
+
+            cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
+
+            Controls.Add(cpb[i, j]);
+          }
+      }
+
+      private void BounceBall()
+      {
+        for (int i = 4; i >= 0; i--)
+        {
+          for (int j = 0; j < 10; j++)
+          {
+            if (cpb[i, j] != null && picBall.Bounds.IntersectsWith(cpb[i, j].Bounds))
+            {   
+              GameData.score += (int)(cpb[i, j].Hits * GameData.ticksCount);
+              cpb[i, j].Hits--;
+
+              if (cpb[i, j].Hits == 0)
+              {
+                Controls.Remove(cpb[i, j]);
+                cpb[i, j] = null;
+
+                remainingPb--;
+              }
+              else if(cpb[i, j].Tag.Equals("blinded"))
+                cpb[i, j].BackgroundImage = Image.FromFile("../../Resources/tb2.png");
+
+              GameData.dirY = -GameData.dirY;
+
+              //score = Convert.ToInt32(GameData.score.ToString());
+
+              if (remainingPb == 0)
+                WinningGame?.Invoke();
+
+              return;
+            }
+          }
+        }
+      }
   }
 }
