@@ -1,4 +1,10 @@
-# Proyecto final - POO
+# The las of Us
+## Integrantes:
+Sebastián Flores Iraheta 00196919
+Andres Enrique Lopez Rodriguez 00136419
+César Antonio Roque Castro 00015319
+Edgardo Josué Morán Jiménez 00127019
+
 
 ## Avisos
 * Añadidas sprites para uso de todos, en dado caso no quieran crear las propias. No es evaluado si las crean o no
