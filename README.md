@@ -134,3 +134,28 @@ Lista de eventos y excepciones con breve descripción.
 
 ### Adicional para los grupos de cuatro integrantes
 En la sección de UML del Manual Técnico deberá agregar un UML de diagrama de casos de uso.
+
+# Manual de usuario
+
+**Antes de comenzar**<br>
+Arkanoid. 
+Evita que la bola caiga al vacio y elimina todos los bloques que sean posibles para ganar Arkanoid.
+
+El juego se controla con las flechas del teclado, recuenda que solo puedes mover la plataforma nave espacial de izquierda a derecha.
+
+**Orden de las Pantallas**<br>
+Al inicio del juego te encontraras con la pantalla de menu:
+
+Preciona play para comenzar a jugar, el boton top 10 players te mostrara el score de los mejores 10 jugadore o la opcion de salir.
+
+Al iniciar tu partida, tendras que ingresar tu usuario, y el juego comienza.
+
+**Comenzar a Jugar**<br>
+En la parte superior encontraras ladrillos o bloques, que desaparecen al ser tocados por la bola. 
+
+Cada vez que cambia de pantalla hay distintas variaciones como los tipos de ladrillo; Los ladrillos blindados necesitan dos golpes para ser destruidos y acumulan dos puntos, mientras que los demas solo necesitan un golpe para ser destuidos y acumulan un punto.
+
+
+
+
+Acumula la mayor cantidad de puntos y demuestra que eres el mejor en el top 10 players.
